@@ -3,10 +3,19 @@ ENV KANBOARD_VERSION=1.2.10
 
 # Apache & misc prerequisites
 RUN     LC_ALL=C.UTF-8 apt-get update; \
-        apt-get install -y apache2 git \
-        git unzip;
+        apt-get install -y apache2 \
+        ;
 
-RUN apt-get install -y wget;
+RUN apt-get install -y wget git unzip \
+        php7.0 php7.0-fpm libapache2-mod-php7.0 \
+        php7.0-pdo-sqlite php7.0-pdo-pgsql \
+        php7.0-gd \
+        php7.0-imap \
+        php7.0-xml \
+        php7.0-curl \
+        php7.0-mbstring;
+
+
 # This package provides the add-apt-repository binary
 #        apt-get install -y software-properties-common; \
 #        add-apt-repository -s ppa:ondrej/php; \
