@@ -1,0 +1,3 @@
+[submodule "kanboard"]
+	path = kanboard
+	url = git@github.com:kanboard/kanboard.git
