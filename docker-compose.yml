@@ -1,0 +1,23 @@
+version: '3'
+services:
+  kanboard:
+    build:
+      context: .
+      args:
+        KANBOARD_DB_PASSWD: doihavesuffisciententropyyesido
+  
+    links:
+      - db
+    ports:
+      - "80:80"
+      - "443:443"
+  
+  db:
+    image: mariadb:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: doihavesuffisciententropyyesido
+      MYSQL_DATABASE: kanboard
+      MYSQL_USER: kanboard
+      MYSQL_PASSWORD: doihavesuffisciententropyyesido
+  
