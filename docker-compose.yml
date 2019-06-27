@@ -5,12 +5,14 @@ services:
       context: .
       args:
         KANBOARD_DB_PASSWD: doihavesuffisciententropyyesido
-  
+        KANBOARD_VERSION: 1.2.10
     links:
       - db
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - kanboard-data:/var/www/kanboard
   
   db:
     image: mariadb:latest
@@ -20,4 +22,7 @@ services:
       MYSQL_DATABASE: kanboard
       MYSQL_USER: kanboard
       MYSQL_PASSWORD: doihavesuffisciententropyyesido
-  
+
+
+volumes:
+  kanboard-data:
